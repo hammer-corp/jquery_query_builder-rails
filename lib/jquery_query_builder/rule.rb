@@ -24,7 +24,7 @@ module JqueryQueryBuilder
       steps = fields.length
       fields.each_with_index do |field, i|
         last_step = i == steps - 1
-        result = result[field]
+        result = result.send(field)
         result = result.first if(result.is_a?(Array) && !last_step)
         break if result.nil?
       end
